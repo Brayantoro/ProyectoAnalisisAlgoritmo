@@ -13,11 +13,10 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
-
 /**
- * @author  Brayan estiven gil toro
- * @author  Alba rocio 
- * @author  Fabian ramirez  bermudez 
+ * @author Brayan estiven gil toro
+ * @author Alba rocio
+ * @author Fabian ramirez bermudez
  */
 public class Pregunta2 extends javax.swing.JFrame {
 
@@ -118,7 +117,6 @@ public class Pregunta2 extends javax.swing.JFrame {
 
         this.repaint();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

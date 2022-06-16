@@ -7,11 +7,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import testsatisfaccion.conexion.conexion;
 
-
 /**
- * @author  Brayan estiven gil toro
- * @author  Alba rocio 
- * @author  Fabian ramirez  bermudez 
+ * @author Brayan estiven gil toro
+ * @author Alba rocio
+ * @author Fabian ramirez bermudez
  */
 public class Usuario {
 
@@ -38,14 +37,15 @@ public class Usuario {
         DT.addColumn("Promedio");
         return DT;
     }
+//metodo para insertas los datos  del usuario con la base de datos
 
-    public int insertarDatos(int cedula, String nombre,double promedio) {
+    public int insertarDatos(int cedula, String nombre, double promedio) {
         int respuesta = 0;
         try {
             PreparedStatement ps = cn.getConexion().prepareStatement(SQL_INSERT);
             ps.setInt(1, cedula);
             ps.setString(2, nombre);
-            ps.setDouble(3,promedio);
+            ps.setDouble(3, promedio);
             respuesta = ps.executeUpdate();
             if (respuesta > 0) {
                 JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente");
@@ -56,7 +56,7 @@ public class Usuario {
         return respuesta;
     }
 
-    
+    //calculo para obtner el promedio de las pruebas
     public Double[] calcularPromediosPreguntas() {
         Double[] lista = new Double[5];
         ResultSet rs;
@@ -69,12 +69,12 @@ public class Usuario {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                // Position the cursor                  4 
-                lista[0] = Double.parseDouble(rs.getString(1));        // Retrieve the first column value
-                lista[1] = Double.parseDouble(rs.getString(2));        // Retrieve the first column value
-                lista[2] = Double.parseDouble(rs.getString(3));        // Retrieve the first column value
-                lista[3] = Double.parseDouble(rs.getString(4));        // Retrieve the first column value
-                lista[4] = Double.parseDouble(rs.getString(5));        // Retrieve the first column value
+                // posicion del cursor              
+                lista[0] = Double.parseDouble(rs.getString(1));
+                lista[1] = Double.parseDouble(rs.getString(2));
+                lista[2] = Double.parseDouble(rs.getString(3));
+                lista[3] = Double.parseDouble(rs.getString(4));
+                lista[4] = Double.parseDouble(rs.getString(5));
             }
 
         } catch (SQLException e) {
@@ -82,6 +82,7 @@ public class Usuario {
         }
         return lista;
     }
+//metodo que calculo el total de respuesta y las cuenta atravez de la base de datos
 
     public Integer calcularTotaleRespuestas() {
 
@@ -101,6 +102,7 @@ public class Usuario {
         return respuesta1;
     }
 
+    //metodo que calcula la cantidad de datos incorrectos y correctos en la base de datos 
     public Integer[] calcularTotalesIncorrectas() {
 
         //correctas
@@ -174,6 +176,7 @@ public class Usuario {
         return lista;
     }
 
+    //metodo que elimina los datos por cedula 
     public int eliminarDatos(int cedula) {
         String SQL_ELIMINAR = "DELETE FROM Usuario WHERE Cedula=" + cedula;
         int respuesta = 0;

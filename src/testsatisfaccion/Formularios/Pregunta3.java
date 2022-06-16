@@ -13,11 +13,10 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
-
 /**
- * @author  Brayan estiven gil toro
- * @author  Alba rocio marin duque
- * @author  Fabian ramirez  bermudez 
+ * @author Brayan estiven gil toro
+ * @author Alba rocio marin duque
+ * @author Fabian ramirez bermudez
  */
 public class Pregunta3 extends javax.swing.JFrame {
 
@@ -114,6 +113,7 @@ public class Pregunta3 extends javax.swing.JFrame {
         this.repaint();
     }
 
+     //metodo que inica el juego y crea los datos dentro de la matriz
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

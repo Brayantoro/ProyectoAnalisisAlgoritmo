@@ -128,6 +128,7 @@ public class InformacionPrueba {
         this.nombreEstudiante = nombreEstudiante;
     }
 
+    //variables para utilizar consultas en la base de datos 
     private final String SQL_INSERT = "INSERT INTO  CalificacionUsu (resultadoPrueba1,resultadoPrueba2,resultadoPrueba3,resultadoPrueba4,resultadoPrueba5,puntaje,Cedula) VALUES (?,?,?,?,?,?,?)";
     // private final String SQL_SELECT = "Select avg(calificacion1)as pronedio from UsuarioTest ";
     private PreparedStatement ps;
@@ -140,6 +141,7 @@ public class InformacionPrueba {
         cn = new conexion();
     }
 
+    //metodo que inserta  los datos de la preguntas en la base de datos 
     public int insertarDatosPrueba( double resultadoPrueba1, 
             double resultadoPrueba2, double resultadoPrueba3, double resultadoPrueba4, 
             double resultadoPrueba5, double puntaje, int Cedula) {

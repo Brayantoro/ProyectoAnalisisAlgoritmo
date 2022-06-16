@@ -5,9 +5,9 @@ import Entidades.UsuarioTest;
 import javax.swing.JOptionPane;
 
 /**
- * @author  Brayan estiven gil toro
- * @author  Alba rocio 
- * @author  Fabian ramirez  bermudez 
+ * @author Brayan estiven gil toro
+ * @author Alba rocio
+ * @author Fabian ramirez bermudez
  */
 public class Estadisticas extends javax.swing.JFrame {
 

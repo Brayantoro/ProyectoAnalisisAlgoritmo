@@ -5,12 +5,12 @@
 package com.uniquindio.proyectoanalisis.dtos;
 
 /**
- * @author  Brayan estiven gil toro
- * @author  Alba rocio 
- * @author  Fabian ramirez  bermudez 
+ * @author Brayan estiven gil toro
+ * @author Alba rocio
+ * @author Fabian ramirez bermudez
  */
 public class Estudiante {
-    
+
     private String nombre;
 
     public String getNombre() {
@@ -20,5 +20,5 @@ public class Estudiante {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
 }

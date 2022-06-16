@@ -9,6 +9,7 @@ import testsatisfaccion.conexion.conexion;
  */
 public class Main {
 
+    //metodo main donde se inicializa la primera ventana 
     public static void main(String[] args) {
          
         Inicio inicioVentana=new Inicio();

@@ -4,13 +4,10 @@ import Entidades.UsuarioTest;
 import com.uniquindio.proyectoanalisis.dtos.InformacionPrueba;
 import javax.swing.JOptionPane;
 
-
-
-
 /**
- * @author  Brayan estiven gil toro
- * @author  Alba rocio 
- * @author  Fabian ramirez  bermudez 
+ * @author Brayan estiven gil toro
+ * @author Alba rocio
+ * @author Fabian ramirez bermudez
  */
 public class testFormulario extends javax.swing.JFrame {
 
@@ -281,12 +278,12 @@ public class testFormulario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxCalificacion3ActionPerformed
 
+    //Button de guardad los datos de calificacion
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         int calificacion1 = Integer.parseInt(jComboBoxCalificacion1.getSelectedItem().toString());
         int calificacion2 = Integer.parseInt(jComboBoxCalificacion2.getSelectedItem().toString());
         int calificacion3 = Integer.parseInt(jComboBoxCalificacion3.getSelectedItem().toString());
 
-        
         int cedula = Integer.parseInt(infoPrueba.getCedula());
 
         usu1.insertarDatosTest(calificacion1, calificacion2, calificacion3, cedula);

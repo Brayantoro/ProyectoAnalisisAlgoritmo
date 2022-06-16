@@ -10,34 +10,30 @@ import org.apache.commons.math3.stat.regression.SimpleRegression;
 import org.math.plot.Plot2DPanel;
 import org.math.plot.plotObjects.BaseLabel;
 
-
 /**
- * @author  Brayan estiven gil toro
- * @author  Alba rocio 
- * @author  Fabian ramirez  bermudez 
+ * @author Brayan estiven gil toro
+ * @author Alba rocio
+ * @author Fabian ramirez bermudez
  */
 public class CoeficienteCorrelación {
-   
-  
-    
-    public InformacionPrueba infoPrueba;
-    
-    //variables para obtener los resultados de las respuestas del test
-        double pregunta1 = infoPrueba.getResultadoPrueba1();
-        double pregunta2 = infoPrueba.getResultadoPrueba2();
-        double pregunta3 = infoPrueba.getResultadoPrueba3();
-        double pregunta4 = infoPrueba.getResultadoPrueba4();
-        double pregunta5 = infoPrueba.getResultadoPrueba5();
-        
-    public UsuarioTest usuarioTes;
-       
-     double calificacion1=usuarioTes.getCalificacion1(); 
-     double calificacion2=usuarioTes.getCalificacion2();      
-     double calificacion3=usuarioTes.getCalificacion3();
 
-     
-    double[] x = {pregunta1,pregunta2,pregunta3,pregunta4,pregunta5};
-    double[] y = {calificacion1,calificacion2,calificacion3};
+    public InformacionPrueba infoPrueba;
+
+    //variables para obtener los resultados de las respuestas del test
+    double pregunta1 = infoPrueba.getResultadoPrueba1();
+    double pregunta2 = infoPrueba.getResultadoPrueba2();
+    double pregunta3 = infoPrueba.getResultadoPrueba3();
+    double pregunta4 = infoPrueba.getResultadoPrueba4();
+    double pregunta5 = infoPrueba.getResultadoPrueba5();
+
+    public UsuarioTest usuarioTes;
+
+    double calificacion1 = usuarioTes.getCalificacion1();
+    double calificacion2 = usuarioTes.getCalificacion2();
+    double calificacion3 = usuarioTes.getCalificacion3();
+
+    double[] x = {pregunta1, pregunta2, pregunta3, pregunta4, pregunta5};
+    double[] y = {calificacion1, calificacion2, calificacion3};
 
     //Valores 
     SimpleRegression sr = new SimpleRegression();
@@ -53,7 +49,7 @@ public class CoeficienteCorrelación {
         for (int i = 0; i < x.length; i++) {
             valoresCalculadosY[i] = sr.predict(x[i]);
         }
-        
+
         plot.addLegend("SOUTH");
         plot.addScatterPlot("Dartos", x, y);
         plot.addLinePlot("regresion", valoresCalculadosY);

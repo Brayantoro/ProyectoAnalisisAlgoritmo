@@ -1,4 +1,3 @@
-
 package Entidades;
 
 import java.sql.PreparedStatement;
@@ -9,19 +8,18 @@ import javax.swing.table.DefaultTableModel;
 import testsatisfaccion.conexion.conexion;
 
 /**
- * @author  Brayan estiven gil toro
- * @author  Alba rocio 
- * @author  Fabian ramirez  bermudez 
+ * @author Brayan estiven gil toro
+ * @author Alba rocio
+ * @author Fabian ramirez bermudez
  */
 public class UsuarioTest {
 
-    
-   //Variables utilizadas en la base de datos
+    //Variables utilizadas en la base de datos
     private int PreguntaUnoCalificacion;
     private int PreguntaDosCalificacion;
     private int PreguntaTresCalificacion;
     private double calificacion1;
-     private double calificacion2;
+    private double calificacion2;
 
     public double getCalificacion2() {
         return calificacion2;
@@ -38,8 +36,8 @@ public class UsuarioTest {
     public void setCalificacion3(double calificacion3) {
         this.calificacion3 = calificacion3;
     }
-        private double calificacion3;
-    
+    private double calificacion3;
+
     //variables para asignar y llamar las cosultas en la base de datos 
     private final String SQL_INSERT = "INSERT INTO  "
             + " UsuarioTest (calificacion1,calificacion2,calificacion3,Cedula) "
@@ -64,7 +62,7 @@ public class UsuarioTest {
         int respuesta = 0;
         try {
 
-            PreparedStatement ps =cn.getConexion().prepareStatement(SQL_INSERT);
+            PreparedStatement ps = cn.getConexion().prepareStatement(SQL_INSERT);
             ps.setInt(1, calificacion1);
             ps.setInt(2, calificacion2);
             ps.setInt(3, calificacion3);
@@ -81,36 +79,37 @@ public class UsuarioTest {
 
     //metodo que realiza la consulta en la base de datos para el promedio de las preguntas de satisfaccion 
     public String promedioCalifiacion1() {
-        
+
         String SQL_PROMEDIO = "Select avg(calificacion1),avg(calificacion2),avg(calificacion3) from UsuarioTest";
-         String resultado ="";
-         double calificacionPRO1;
-         double calificacionPRO2;
-         double calificacionPRO3;
+        String resultado = "";
+        double calificacionPRO1;
+        double calificacionPRO2;
+        double calificacionPRO3;
         try {
             PreparedStatement ps = cn.getConexion().prepareStatement(SQL_PROMEDIO);
             RS = ps.executeQuery();
-            while(RS.next()) {
-             calificacionPRO1=RS.getDouble(1);
-             calificacionPRO2=RS.getDouble(2);
-             calificacionPRO3=RS.getDouble(3);
-             JOptionPane.showMessageDialog(null, "Promedio Global:\n"
-                + "1.En general,¿ como califica la  experiencia  con el  juego?\n" +   calificacionPRO1 + "\n"
-                + "2.¿consideras que el juego ha sido comprensible y adecuado con el desarrollo planteado en clase?\n" + calificacionPRO2 + "\n"
-                + "3¿Estás de acuerdo o en desacuerdo con que el problema fue resuelto en el juego efectivamente?\n" + calificacionPRO3+ "\n");
+            while (RS.next()) {
+                calificacionPRO1 = RS.getDouble(1);
+                calificacionPRO2 = RS.getDouble(2);
+                calificacionPRO3 = RS.getDouble(3);
+                JOptionPane.showMessageDialog(null, "Promedio Global:\n"
+                        + "1.En general,¿ como califica la  experiencia  con el  juego?\n" + calificacionPRO1 + "\n"
+                        + "2.¿consideras que el juego ha sido comprensible y adecuado con el desarrollo planteado en clase?\n" + calificacionPRO2 + "\n"
+                        + "3¿Estás de acuerdo o en desacuerdo con que el problema fue resuelto en el juego efectivamente?\n" + calificacionPRO3 + "\n");
             }
         } catch (SQLException e) {
             System.err.println("Error al listar los datos");
         }
         return resultado;
     }
-     public double promedioCalifiacion2() {
+
+    public double promedioCalifiacion2() {
         String SQL_PROMEDIO2 = "Select avg(calificacion2) from UsuarioTest";
         double resultado = 0;
         try {
             PreparedStatement ps = cn.getConexion().prepareStatement(SQL_PROMEDIO2);
             RS = ps.executeQuery();
-            while(RS.next()) {
+            while (RS.next()) {
                 resultado = RS.getDouble("promedio");
                 // .. rest of your code
             }
@@ -120,15 +119,15 @@ public class UsuarioTest {
         }
         return resultado;
     }
-    
-     public double promedioCalifiacion3() {
-         
-        String SQL_PROMEDIO3= "Select avg(calificacion3)from UsuarioTest";
+
+    public double promedioCalifiacion3() {
+
+        String SQL_PROMEDIO3 = "Select avg(calificacion3)from UsuarioTest";
         double resultado = 0;
         try {
             PreparedStatement ps = cn.getConexion().prepareStatement(SQL_PROMEDIO3);
             RS = ps.executeQuery();
-            while(RS.next()) {
+            while (RS.next()) {
                 resultado = RS.getDouble("promedio");
                 // .. rest of your code
             }
@@ -137,9 +136,7 @@ public class UsuarioTest {
         }
         return resultado;
     }
-    
-    
-    
+
     public int getPreguntaUnoCalificacion() {
         return PreguntaUnoCalificacion;
     }
